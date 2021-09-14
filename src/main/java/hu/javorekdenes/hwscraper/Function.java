@@ -18,7 +18,7 @@ import hu.javorekdenes.hwscraper.search.model.Query;
 import hu.javorekdenes.hwscraper.search.model.Result;
 import hu.javorekdenes.hwscraper.store.Store;
 import hu.javorekdenes.hwscraper.store.StoreException;
-import hu.javorekdenes.hwscraper.store.impl.FirebaseStore;
+import hu.javorekdenes.hwscraper.store.impl.FireStore;
 
 public class Function implements BackgroundFunction<Message> {
     private static final Logger logger = Logger.getLogger(Function.class.getName());
@@ -46,9 +46,9 @@ public class Function implements BackgroundFunction<Message> {
             return;
         }
 
-        Store firebaseStore = new FirebaseStore(cloud.getFirestoreDB());
+        Store firestore = new FireStore(cloud.getFirestoreDB());
         try {
-            firebaseStore.saveBatch("videocards", results);
+            firestore.saveBatch("videocards", results);
         } catch (StoreException e) {
             logger.severe("Could not save results: " + e);
             return;
