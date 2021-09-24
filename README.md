@@ -10,7 +10,7 @@ Install and initialize gcloud CLI: https://cloud.google.com/sdk/gcloud
 ## Run locally (TBD)
 
 
-## Deploy to Google Cloud Functions (TBD)
+## Deploy to Google Cloud Functions
 
 Fill the following template and run it in the project root (where pom.xml is located).
 
